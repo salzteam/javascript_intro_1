@@ -1,23 +1,26 @@
-const mtk = 80;
-const bahasaindonesia = 88;
-const bahasainggris = 87;
-const ipa = 94;
-
 function rata(a, b, c, d) {
-  nilai = a + b + c + d;
-  hasil = nilai / 4;
-  return hasil;
+  if (
+    typeof a == "number" &&
+    typeof b == "number" &&
+    typeof c == "number" &&
+    typeof d == "number" &&
+    a >= 0 &&
+    b >= 0 &&
+    c >= 0 &&
+    d >= 0
+  ) {
+    nilai = a + b + c + d;
+    hasil = nilai / 4;
+    let grade = "";
+    if (hasil >= 90) grade = "A";
+    else if (hasil >= 80) grade = "B";
+    else if (hasil >= 70) grade = "C";
+    else if (hasil >= 60) grade = "D";
+    else if (hasil <= 59) grade = "E";
+    return `Rata - Rata : ${hasil}
+Grade = ${grade}`;
+  } else {
+    return "Data Harus Number!!!";
+  }
 }
-
-function grade(nilai) {
-  if (nilai >= 90) return "A";
-  if (nilai >= 80) return "B";
-  if (nilai >= 70) return "C";
-  if (nilai >= 60) return "D";
-  if (nilai <= 59) return "E";
-}
-
-const hasilrat = rata(mtk, bahasaindonesia, bahasainggris, ipa);
-const hasilgrade = grade(hasilrat);
-console.log(`Rata - Rata = ${hasilrat}
-Grade = ${hasilgrade}`);
+console.log(rata(100, 100, 100, 100));
