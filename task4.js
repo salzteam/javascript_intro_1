@@ -20,7 +20,7 @@ const addData = {
 };
 
 const newData = { ...data, ...addData };
-let { id, name, username, email, address, phone, website } = data;
-let { street, suite, city, zipcode } = address;
+const { street, city } = data.address;
+
 console.log(newData);
-console.log("\n\nStreet : " + street + "\n" + "City : " + "city");
+console.log("\n\nStreet : " + street + "\n" + "City : " + city);
